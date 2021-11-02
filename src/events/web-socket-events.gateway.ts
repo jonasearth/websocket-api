@@ -69,7 +69,7 @@ export class WebSocketEventsGateway {
       if (dev) {
         if (dev.status !== device.status) {
           dev.status = device.status;
-          if (dev.status !== 'online') {
+          if (dev.status === 'online') {
             dev.connected_at = new Date();
           }
         }

@@ -95,6 +95,10 @@ export class WebSocketEventsGateway {
       console.log('open');
     });
 
+    ws.on('close', async () => {
+      this.client(url, protocols, options);
+    });
+
     ws.on('message', async (msg) => {
       const resp: TraccarWebSocketReturn = JSON.parse(
         msg.toString(),
